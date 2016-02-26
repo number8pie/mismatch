@@ -1,3 +1,7 @@
+CREATE DATABASE mismatch;
+
+USE mismatch;
+
 CREATE TABLE `mismatch_user` (
   `user_id` INT AUTO_INCREMENT,
   `join_date` DATETIME,
