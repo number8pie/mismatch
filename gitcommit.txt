@@ -1,4 +1,4 @@
 #NEXT COMMIT MESSAGE:
 
-Added the create database query to the sql seed file.
-Another query needs to be ran on the database to add username and password columns, query is in book notes on evernote.
+Created login.php file to be included for restricted pages where log in is required.
+Included the login.php script in both viewprofile and editprofile. Tested and works.
