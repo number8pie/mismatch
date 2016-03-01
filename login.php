@@ -6,7 +6,7 @@
 		//The username and password weren't entered so send the authentication headers
 		header('HTTP/1.1 401 Unauthorized');
 		header('WWW-Authenticate: Basic realm="Mismatch"');
-		exit('<h3>Mismatch</h3>Sorry, you must enter your username and password to log in and access this page.');
+		exit('<h3>Mismatch</h3>Sorry, you must enter your username and password to log in and access this page. If you aren\'t a registered member, please <a href="signup.php">sign up</a>.</p>');
 	}
 
 	//Connect to database
@@ -29,7 +29,7 @@
 		//The username and/or password were incorrect so send authentication headers
 		header('HTTP/1.1 401 Unauthorized');
 		header('WWW-Authenticate: Basic realm="Mismatch"');
-		exit('<h3>Mismatch</h3>Sorry, you must enter a valid username and password to log in and access this page.');
+		exit('<h3>Mismatch</h3>Sorry, you must enter a valid username and password to log in and access this page. If you aren\'t a registered member, please <a href="signup.php">sign up</a>.');
 	}
 
 	//Confirm successful log in

@@ -1,4 +1,4 @@
 #NEXT COMMIT MESSAGE:
 
-Created login.php file to be included for restricted pages where log in is required.
-Included the login.php script in both viewprofile and editprofile. Tested and works.
+Created signup.php file that allows users to sign up if they have no account.
+Added a link to this page on both error messages in login.php, the one that shows if the user cancels the log in, and the one that shows if the user enters an incorrect username and/or incorrect password. Tested and works as it should.
