@@ -31,7 +31,9 @@
     $new_picture = mysqli_real_escape_string($dbc, trim($_FILES['new_picture']['name']));
     $new_picture_type = $_FILES['new_picture']['type'];
     $new_picture_size = $_FILES['new_picture']['size']; 
-    list($new_picture_width, $new_picture_height) = getimagesize($_FILES['new_picture']['tmp_name']);
+    if (!empty($new_picture)) {
+      list($new_picture_width, $new_picture_height) = getimagesize($_FILES['new_picture']['tmp_name']);
+    }
     $error = false;
 
     // Validate and move the uploaded picture file, if necessary
@@ -71,11 +73,11 @@
         // Only set the picture column if there is a new picture
         if (!empty($new_picture)) {
           $query = "UPDATE mismatch_user SET first_name = '$first_name', last_name = '$last_name', gender = '$gender', " .
-            " birthdate = '$birthdate', city = '$city', state = '$state', picture = '$new_picture' WHERE user_id = '$user_id'";
+            " birthdate = '$birthdate', city = '$city', state = '$state', picture = '$new_picture' WHERE user_id = '" . $_COOKIE['user_id'] . "'";
         }
         else {
           $query = "UPDATE mismatch_user SET first_name = '$first_name', last_name = '$last_name', gender = '$gender', " .
-            " birthdate = '$birthdate', city = '$city', state = '$state' WHERE user_id = '$user_id'";
+            " birthdate = '$birthdate', city = '$city', state = '$state' WHERE user_id = '" . $_COOKIE['user_id'] . "'";
         }
         mysqli_query($dbc, $query);
 
@@ -92,7 +94,7 @@
   } // End of check for form submission
   else {
     // Grab the profile data from the database
-    $query = "SELECT first_name, last_name, gender, birthdate, city, state, picture FROM mismatch_user WHERE user_id = '$user_id'";
+    $query = "SELECT first_name, last_name, gender, birthdate, city, state, picture FROM mismatch_user WHERE user_id = '" . $_COOKIE['user_id'] . "'";
     $data = mysqli_query($dbc, $query);
     $row = mysqli_fetch_array($data);
 
