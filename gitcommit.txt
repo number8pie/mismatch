@@ -1,5 +1,4 @@
 #NEXT COMMIT MESSAGE:
 
-Fixed error displaying on viewprofile.php, the sql query was not using the cookie to get the user_id on line 24.
-Fixed same error showing on editprofile.php, again sql query was not using cookie. Lines 76, 80, 97.
-Fixed another error on editprofile.php where if no image was uploaded it would give a getimagesize() cant be empty error, so put line 35 in an if loop to check $new_picture has been set.
+Created logout.php so users can manually log out.
+Modified index.php, login.php, logout.php, viewprofile.php and editprofile.php to use sessions. Tested and it all works.

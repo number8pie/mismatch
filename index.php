@@ -1,3 +1,7 @@
+<?php
+  // Start the session
+  session_start();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -14,10 +18,10 @@
   require_once('connectvars.php');
 
   // Generate the navigation menu
-  if (isset($_COOKIE['username'])) {
+  if (isset($_SESSION['username'])) {
     echo '&#10084; <a href="viewprofile.php">View Profile</a><br />';
     echo '&#10084; <a href="editprofile.php">Edit Profile</a><br />';
-    echo '&#10084; <a href="logout.php">Log Out (' . $_COOKIE['username'] . ')</a><br />';
+    echo '&#10084; <a href="logout.php">Log Out (' . $_SESSION['username'] . ')</a><br />';
   } else {
     echo '&#10084; <a href="login.php">Log In</a><br />';
     echo '&#10084; <a href="signup.php">Sign Up</a><br />';
