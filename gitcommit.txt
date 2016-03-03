@@ -1,4 +1,5 @@
 #NEXT COMMIT MESSAGE:
 
-Created logout.php so users can manually log out.
-Modified index.php, login.php, logout.php, viewprofile.php and editprofile.php to use sessions. Tested and it all works.
+Added cookies to login.php so that the script uses sessions and cookies.
+Index.php now checks if a cookie is set, and if so adds the info to the session.
+Cleared cookies in logout.php.

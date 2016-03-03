@@ -27,6 +27,8 @@
 					$row = mysqli_fetch_array($data);
 					$_SESSION['user_id'] = $row['user_id'];
 					$_SESSION['username'] = $row['username'];
+					setcookie('user_id', $row['user_id'], time() + (60 * 60 * 24 * 30)); //Expires in 30 days
+					setcookie('username', $row['username'], (60 * 60 * 24 * 30)); //Expires in 30 days
 					$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';
 					header('Location: ' . $home_url);
 				} else {
