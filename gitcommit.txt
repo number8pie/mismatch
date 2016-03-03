@@ -3,3 +3,4 @@
 Added cookies to login.php so that the script uses sessions and cookies.
 Index.php now checks if a cookie is set, and if so adds the info to the session.
 Cleared cookies in logout.php.
+Put header, footer, nav and startsession blocks in separate files and used require_once on the pages where they're required.

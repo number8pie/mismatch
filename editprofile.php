@@ -1,25 +1,21 @@
 <?php
-  require_once('login.php');
+  require_once('startsession.php');
+  
+  $page_title = 'Edit Profile';
+  require_once('header.php');
 
-  // Start the session
-  session_start();
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Mismatch - Edit Profile</title>
-  <link rel="stylesheet" type="text/css" href="style.css" />
-</head>
-<body>
-  <h3>Mismatch - Edit Profile</h3>
-
-<?php
   require_once('appvars.php');
   require_once('connectvars.php');
 
-  // Connect to the database
+  //Make sure the user is logged in before going any further.
+  if (!isset($_SESSION['user_id'])) {
+    echo '<p class="login">Please <a href="login.php">log in</a> to access this page.</p>';
+    exit();
+  }
+
+  require_once('navmenu.php');
+
+  //Connect to the database
   $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
   if (isset($_POST['submit'])) {
@@ -146,5 +142,6 @@
     </fieldset>
     <input type="submit" value="Save Profile" name="submit" />
   </form>
-</body> 
-</html>
+<?php
+  require_once('footer.php');
+?>
