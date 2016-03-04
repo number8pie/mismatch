@@ -1,6 +1,5 @@
 #NEXT COMMIT MESSAGE:
 
-Added cookies to login.php so that the script uses sessions and cookies.
-Index.php now checks if a cookie is set, and if so adds the info to the session.
-Cleared cookies in logout.php.
-Put header, footer, nav and startsession blocks in separate files and used require_once on the pages where they're required.
+Started questionnaire.php, need to write analysis of it to completely understand it.
+Getting warning:
+"Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in C:\xampp\htdocs\mismatch\questionnaire.php on line 34"
