@@ -1,5 +1,11 @@
 #NEXT COMMIT MESSAGE:
 
-Started questionnaire.php, need to write analysis of it to completely understand it.
-Getting warning:
-"Warning: mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in C:\xampp\htdocs\mismatch\questionnaire.php on line 34"
+Finished questionnaire.php. Tested and all working correctly.
+Fixed error on editprofile.php when uploading an image:
+line 43 |
+from "if ($_FILES['file']['error'] == 0) {"
+to "if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {".
+Removed stray forward slash in login.php.
+Added questionnaire to navigation menu.
+Jimi's profile now has a picture of Jimi lookin fly.
+Next up on the PHP show... We're normalising the data in the table, using foreign keys and insert statements.

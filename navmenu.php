@@ -1,14 +1,15 @@
 <?php
   // Generate the navigation menu
 	echo "<hr />";
-	echo '<a href="index.php">Home</a> ';
+	echo '<a href="index.php">Home</a> &#10084; ';
   if (isset($_SESSION['username'])) {
-    echo '&#10084; <a href="viewprofile.php">View Profile</a> ';
-    echo '&#10084; <a href="editprofile.php">Edit Profile</a> ';
-    echo '&#10084; <a href="logout.php">Log Out (' . $_SESSION['username'] . ')</a>';
+    echo '<a href="viewprofile.php">View Profile</a> &#10084; ';
+    echo '<a href="editprofile.php">Edit Profile</a> &#10084; ';
+    echo '<a href="questionnaire.php">Questionnaire</a> &#10084; ';
+    echo '<a href="logout.php">Log Out (' . $_SESSION['username'] . ')</a>';
   } else {
-    echo '&#10084; <a href="login.php">Log In</a> ';
-    echo '&#10084; <a href="signup.php">Sign Up</a>';
+    echo '<a href="login.php">Log In</a> &#10084; ';
+    echo '<a href="signup.php">Sign Up</a>';
   }
 	echo "<hr />";
 ?>
