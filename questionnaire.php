@@ -26,7 +26,7 @@
   $data = mysqli_query($dbc, $query);
   if (mysqli_num_rows($data) == 0) {
     //First grab the list of topic IDs from the topic table
-    $query = "SELECT topic_id FROM mismatch_topic ORDER BY category, topic_id";
+    $query = "SELECT topic_id FROM mismatch_topic ORDER BY category_id, topic_id";
     $data = mysqli_query($dbc, $query);
     $topicIDs = array();
     while ($row = mysqli_fetch_array($data)) {
@@ -51,19 +51,11 @@
   }
 
   //Grab the response data from the database to generate form
-  $query = "SELECT response_id, topic_id, response FROM mismatch_response WHERE user_id = '" . $_SESSION['user_id'] . "'";
+  $query = "SELECT mr.response_id, mr.topic_id, mr.response, mt.name AS topic_name, mc.name AS category_name FROM mismatch_response AS mr INNER JOIN mismatch_topic AS mt USING (topic_id) INNER JOIN mismatch_category AS mc USING (category_id) WHERE mr.user_id = '" . $_SESSION['user_id'] . "'";
   $data = mysqli_query($dbc, $query);
   $responses = array();
   while ($row = mysqli_fetch_array($data)) {
-    //Look up topic name for the response from the topic table
-    $query2 = "SELECT name, category FROM mismatch_topic WHERE topic_id = '" . $row['topic_id'] . "'";
-    $data2 = mysqli_query($dbc, $query2);
-    if (mysqli_num_rows($data2) == 1) {
-      $row2 = mysqli_fetch_array($data2);
-      $row['topic_name'] = $row2['name'];
-      $row['category'] = $row2['category'];
-      array_push($responses, $row);
-    }
+    array_push($responses, $row);
   }
 
   mysqli_close($dbc);
@@ -71,13 +63,13 @@
   // Generate the questionnaire form by looping through the response array
   echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
   echo '<p>How do you feel about each topic?</p>';
-  $category = $responses[0]['category'];
-  echo '<fieldset><legend>' . $responses[0]['category'] . '</legend>';
+  $category = $responses[0]['category_name'];
+  echo '<fieldset><legend>' . $responses[0]['category_name'] . '</legend>';
   foreach ($responses as $response) {
     // Only start a new fieldset if the category has changed
-    if ($category != $response['category']) {
-      $category = $response['category'];
-      echo '</fieldset><fieldset><legend>' . $response['category'] . '</legend>';
+    if ($category != $response['category_name']) {
+      $category = $response['category_name'];
+      echo '</fieldset><fieldset><legend>' . $response['category_name'] . '</legend>';
     }
 
     // Display topic form field

@@ -1,11 +1,4 @@
 #NEXT COMMIT MESSAGE:
 
-Finished questionnaire.php. Tested and all working correctly.
-Fixed error on editprofile.php when uploading an image:
-line 43 |
-from "if ($_FILES['file']['error'] == 0) {"
-to "if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {".
-Removed stray forward slash in login.php.
-Added questionnaire to navigation menu.
-Jimi's profile now has a picture of Jimi lookin fly.
-Next up on the PHP show... We're normalising the data in the table, using foreign keys and insert statements.
+Normalised data in the database.
+Streamlined the "Grab the response data..." query, to a single query using inner joins.
