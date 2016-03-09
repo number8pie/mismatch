@@ -1,4 +1,6 @@
 #NEXT COMMIT MESSAGE:
 
-Normalised data in the database.
-Streamlined the "Grab the response data..." query, to a single query using inner joins.
+Made changes to database (laptop).
+Creted mymismatch.php to find a users perfect mismatch.
+Finished project No4!
+Next isto write a code analysis on project No4.

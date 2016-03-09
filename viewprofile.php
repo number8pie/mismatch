@@ -54,7 +54,7 @@
       echo '</td></tr>';
     }
     if (!empty($row['birthdate'])) {
-      if (!isset($_GET['user_id']) || ($user_id == $_GET['user_id'])) {
+      if (!isset($_GET['user_id']) || ($_SESSION['user_id'] == $_GET['user_id'])) {
         // Show the user their own birthdate
         echo '<tr><td class="label">Birthdate:</td><td>' . $row['birthdate'] . '</td></tr>';
       }
@@ -72,7 +72,7 @@
         '" alt="Profile Picture" /></td></tr>';
     }
     echo '</table>';
-    if (!isset($_GET['user_id']) || ($user_id == $_GET['user_id'])) {
+    if (!isset($_GET['user_id']) || ($_SESSION['user_id'] == $_GET['user_id'])) {
       echo '<p>Would you like to <a href="editprofile.php">edit your profile</a>?</p>';
     }
   } // End of check for a single row of user results
