@@ -1,6 +1,10 @@
 #NEXT COMMIT MESSAGE:
 
-Made changes to database (laptop).
-Creted mymismatch.php to find a users perfect mismatch.
-Finished project No4!
-Next isto write a code analysis on project No4.
+Tested profile picture upload and it didnt work.
+Removed isset from line 43 in editprofile.php, reverted back to code in book.
+Tested picture upload and it works but gives a notice:
+Notice: Undefined index: file in C:\xampp\htdocs\mismatch\editprofile.php on line 43
+On line 43 of editprofile.php:
+Replaced		if ($_FILES['files']['error'] == 0) {
+With				if ($_FILES['new_picture']['error'] == 0) {
+Picture upload works fine and gives no notices.
