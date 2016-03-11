@@ -1,10 +1,8 @@
 #NEXT COMMIT MESSAGE:
 
-Tested profile picture upload and it didnt work.
-Removed isset from line 43 in editprofile.php, reverted back to code in book.
-Tested picture upload and it works but gives a notice:
-Notice: Undefined index: file in C:\xampp\htdocs\mismatch\editprofile.php on line 43
-On line 43 of editprofile.php:
-Replaced		if ($_FILES['files']['error'] == 0) {
-With				if ($_FILES['new_picture']['error'] == 0) {
-Picture upload works fine and gives no notices.
+Line 76 of questionnaire.php:
+Changed this:
+($response['response'] == NULL ? 'class="error"' : '')
+To this:
+($response['response'] == 0 ? 'class="error"' : '')
+When a question was unanswered, the error class was not being set, after looking into it it seems the default value for the unanswered response column set by the script is 0, and not NULL.

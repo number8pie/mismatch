@@ -30,7 +30,7 @@
     $data = mysqli_query($dbc, $query);
     $topicIDs = array();
     while ($row = mysqli_fetch_array($data)) {
-      array_push($topicIDs, $row['topic_id']);
+      array_push($topicIDs, $row['topic_id']);  
     }
 
     //Insert empty response rows into the response table one per topic
@@ -73,7 +73,7 @@
     }
 
     // Display topic form field
-    echo '<label ' . ($response['response'] == NULL ? 'class="error"' : '') . ' for="' . $response['response_id'] . '">' . $response['topic_name'] . '</label>';
+    echo '<label ' . ($response['response'] == 0 ? 'class="error"' : '') . ' for="' . $response['response_id'] . '">' . $response['topic_name'] . '</label>';
     echo '<input type="radio" id="' . $response['response_id'] . '" name="' . $response['response_id'] . '" value="1" ' .
     ($response['response'] == 1 ? 'checked="checked"' : '') . ' />Love ';
     echo '<input type="radio" id="' . $response['response_id'] . '" name="' . $response['response_id'] . '" value="2" ' .
