@@ -1,6 +1,15 @@
 #NEXT COMMIT MESSAGE:
 
+<<<<<<< HEAD
 Added to query on line 29 so that the categoreis are added to the user's responses array.
 Made slight changes to the expressions of the for loop on line 57.
 Declared $categories variable as an array on line 56.
 added an array_push() to line 61 that pushes each mismatched category to the $categories array, ready to be displayed in the bar chart. 
+=======
+Line 76 of questionnaire.php:
+Changed this:
+($response['response'] == NULL ? 'class="error"' : '')
+To this:
+($response['response'] == 0 ? 'class="error"' : '')
+When a question was unanswered, the error class was not being set, after looking into it it seems the default value for the unanswered response column set by the script is 0, and not NULL.
+>>>>>>> 083bde181617de562acadcf69264052145b2d449
