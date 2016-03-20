@@ -1,6 +1,6 @@
 #NEXT COMMIT MESSAGE:
 
-Made changes to database (laptop).
-Creted mymismatch.php to find a users perfect mismatch.
-Finished project No4!
-Next isto write a code analysis on project No4.
+Added to query on line 29 so that the categoreis are added to the user's responses array.
+Made slight changes to the expressions of the for loop on line 57.
+Declared $categories variable as an array on line 56.
+added an array_push() to line 61 that pushes each mismatched category to the $categories array, ready to be displayed in the bar chart. 

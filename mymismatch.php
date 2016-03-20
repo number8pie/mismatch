@@ -3,7 +3,7 @@
   require_once('startsession.php');
 
   // Insert the page header
-  $page_title = 'Questionnaire';
+  $page_title = 'My Mismatch';
   require_once('header.php');
 
   require_once('appvars.php');
@@ -26,7 +26,7 @@
   $data = mysqli_query($dbc, $query);
   if (mysqli_num_rows($data) != 0) {
   	//First grab the users responses from the response table (JOIN to get the topic name)
-  	$query = "SELECT mr.response_id, mr.topic_id, mr.response, mt.name AS topic_name FROM mismatch_response AS mr INNER JOIN mismatch_topic AS mt USING (topic_id) WHERE mr.user_id = '" . $_SESSION['user_id'] . "'";
+  	$query = "SELECT mr.response_id, mr.topic_id, mr.response, mt.name AS topic_name, mc.name AS category_name FROM mismatch_response AS mr INNER JOIN mismatch_topic AS mt USING (topic_id) INNER JOIN mismatch_category AS mc USING (category_id) WHERE mr.user_id = '" . $_SESSION['user_id'] . "'";
   	$data = mysqli_query($dbc, $query);
   	$user_responses = array();
   	while ($row = mysqli_fetch_array($data)) {
@@ -50,13 +50,15 @@
   			array_push($mismatch_responses, $row2);
   		}
 
-      //Compare each response and calculate a mismatch total
+      // Compare each response and calculate a mismatch total
       $score = 0;
       $topics = array();
-      for ($i = 0; $i < count($user_responses) && !empty($mismatch_responses); $i++) {
+      $categories = array();
+      for ($i = 0; $i < count($user_responses); $i++) {
         if ($user_responses[$i]['response'] + $mismatch_responses[$i]['response'] == 3) {
           $score += 1;
           array_push($topics, $user_responses[$i]['topic_name']);
+          array_push($categories, $user_responses[$i]['category_name']);
         }
       }
 
