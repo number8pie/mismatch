@@ -1,15 +1,9 @@
 #NEXT COMMIT MESSAGE:
 
-<<<<<<< HEAD
-Added to query on line 29 so that the categoreis are added to the user's responses array.
-Made slight changes to the expressions of the for loop on line 57.
-Declared $categories variable as an array on line 56.
-added an array_push() to line 61 that pushes each mismatched category to the $categories array, ready to be displayed in the bar chart. 
-=======
-Line 76 of questionnaire.php:
-Changed this:
-($response['response'] == NULL ? 'class="error"' : '')
-To this:
-($response['response'] == 0 ? 'class="error"' : '')
-When a question was unanswered, the error class was not being set, after looking into it it seems the default value for the unanswered response column set by the script is 0, and not NULL.
->>>>>>> 083bde181617de562acadcf69264052145b2d449
+Added $mismatch_categories array to line 54 in mymismatch.php.
+Added the array_slice() function to slice $categories and allocated them to the $mismatch_categories array on line 86 in mymismatch.php.
+(both of these are errata noted on the errata website fore this book, http://www.oreilly.com/catalog/errataunconfirmed.csp?isbn=9780596006303, and the $mismatch_categories array is a requirement for the bar chart to follow)
+Created new function draw_bar_graph() at the start of mymismatch.php, that creates a bar chart png of the data it's given.
+Changed how the mismatched topics are displayed, now in four columns (line 130 to 141).
+Called the new draw_bar_graph() function and echoed out the bar graph (line 153 to 156).
+Will write a code analysis on these new additions.
