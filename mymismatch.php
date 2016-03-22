@@ -15,9 +15,22 @@
     // Draw the bars
     $bar_width = $width / ((count($data) * 2) + 1);
     for ($i = 0; $i < count($data); $i++) {
-      imagefilledrectangle($img, ($i * $bar_width * 2) + $bar_width, $height,
-        ($i * $bar_width * 2) + ($bar_width * 2), $height - (($height / $max_value) * $data[$i][1]), $bar_color);
-      imagestringup($img, 5, ($i * $bar_width * 2) + ($bar_width), $height - 5, $data[$i][0], $text_color);
+      imagefilledrectangle(
+        $img,
+        ($i * $bar_width * 2) + ($bar_width * 2),
+        $height - (($height / $max_value) * $data[$i][1]),
+        ($i * $bar_width * 2) + $bar_width,
+        $height,
+        $bar_color
+      );
+      imagestringup(
+        $img,
+        5,
+        ($i * $bar_width * 2) + ($bar_width),
+        $height - 5,
+        $data[$i][0],
+        $text_color
+      );
     }
 
     // Draw a rectangle around the whole thing
