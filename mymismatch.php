@@ -165,8 +165,8 @@
 
         // Generate and display the mismatched category bar graph image
         echo '<h4>Mismatched category breakdown:</h4>';
-        draw_bar_graph(480, 240, $category_totals, 5, MM_UPLOADPATH . 'mymismatchgraph.png');
-        echo '<img src="' . MM_UPLOADPATH . 'mymismatchgraph.png" alt="Mismatch category graph" /><br />';
+        draw_bar_graph(480, 240, $category_totals, 5, MM_UPLOADPATH . $_SESSION['user_id'] . '-mymismatchgraph.png');
+        echo '<img src="' . MM_UPLOADPATH . $_SESSION['user_id'] . '-mymismatchgraph.png" alt="Mismatch category graph" /><br />';
 
   			//Display a link to the mismatch user's profile
   			echo '<h4>View <a href=viewprofile.php?user_id=' . $mismatch_user_id . '>' . $row['first_name'] . '\'s profile</a>.</h4>';
