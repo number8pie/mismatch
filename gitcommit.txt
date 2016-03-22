@@ -1,9 +1,3 @@
 #NEXT COMMIT MESSAGE:
 
-Added $mismatch_categories array to line 54 in mymismatch.php.
-Added the array_slice() function to slice $categories and allocated them to the $mismatch_categories array on line 86 in mymismatch.php.
-(both of these are errata noted on the errata website fore this book, http://www.oreilly.com/catalog/errataunconfirmed.csp?isbn=9780596006303, and the $mismatch_categories array is a requirement for the bar chart to follow)
-Created new function draw_bar_graph() at the start of mymismatch.php, that creates a bar chart png of the data it's given.
-Changed how the mismatched topics are displayed, now in four columns (line 130 to 141).
-Called the new draw_bar_graph() function and echoed out the bar graph (line 153 to 156).
-Will write a code analysis on these new additions.
+Changed lines 155 & 156, now the name of the graph is prepended by the user's unique user_id.
